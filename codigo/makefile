@@ -1,0 +1,14 @@
+ all:
+		gcc -g -c -o ../bin/conjuntos.o conjuntos.c -Wall 
+		gcc -g -c -o ../bin/analisis.o analisis.c -Wall 
+		gcc -g -o ../bin/calcula_umbral ../bin/analisis.o ../bin/conjuntos.o -I../include calcula_umbral.c -L../lib -lnetpbm -Wall -lm
+
+ caracteristicas:
+		gcc -g -c -o ../bin/conjuntos.o conjuntos.c -Wall 
+		gcc -g -c -o ../bin/analisis.o analisis.c -Wall 
+		gcc -g -o ../bin/caracteristicas ../bin/analisis.o ../bin/conjuntos.o -I../include obtener_caracteristicas.c -L../lib -lnetpbm -Wall -lm
+
+ clasificador: 
+		gcc -g -ggdb -Wall -o ../bin/clasificar -I ../include clasificar.c -L ../lib/ -leasywin -lcv -lhighgui -lnetpbm -lvision
+ clean:
+	rm  ../bin/*.o
